@@ -31,6 +31,7 @@ ExportedObj/
 *.csproj
 *.unityproj
 *.sln
+*.asset
 *.suo
 *.tmp
 *.user
@@ -42,7 +43,11 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-
+*meta
+*mat
+*Assets/KUBIKOS*
+*Assets/Sets*
+*Assets/TextMesh*
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
