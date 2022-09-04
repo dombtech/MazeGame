@@ -29,18 +29,18 @@ public class Movement : MonoBehaviour
             if (!isRunning)
             {
                 isRunning = true;
-                animator.SetBool("Run", true);
+                animator.SetTrigger("Run");
             }
             moveVector.Normalize();
             transform.rotation = Quaternion.LookRotation(moveVector);
-            transform.Translate(moveVector * 2 * Time.deltaTime, Space.World);
+            transform.Translate(moveVector * (2 * Time.deltaTime), Space.World);
         }
         else
         {
             if (isRunning)
             {
                 isRunning = false;
-                animator.SetBool("Idle", true);
+                animator.SetTrigger("Idle");
             }
         }
     }

@@ -21,7 +21,6 @@ public class MazeGenerator : MonoBehaviour
         map = new Coordinates[dimension, dimension];
 
         var gameObjects = GameObject.FindGameObjectsWithTag("Wall");
-        Destroy(GameObject.FindGameObjectWithTag("Finish"));
 
         for (var i = 0; i < gameObjects.Length; i++)
         {
@@ -36,46 +35,55 @@ public class MazeGenerator : MonoBehaviour
 
         InstantiateWalls();
 
+        if (collectGems)
+            GenerateGems();
+        else
+            GenerateFinishLine();
+
         floor.transform.localPosition = new Vector3((dimension * 0.5F) - 0.5F, -0.4F, (dimension * 0.5F) - 0.5F);
         floor.transform.localScale += new Vector3(dimension - 1, 0, dimension - 1);
 
         man.transform.localPosition = new Vector3(0, 1F, 0);
-        if (collectGems)
-            InstantiateGems();
-        else
-            Instantiate(finishLine, new Vector3(dimension - 1F, 0, dimension - 1F), Quaternion.identity);
     }
 
     public void SetDimension(int value)
     {
         dimension = value;
     }
-
+    
     public void SetLevelType(bool value)
     {
         collectGems = value;
     }
 
-    public void InstantiateGems()
+    void GenerateGems()
     {
-        int NumOfGems = dimension / 2;
-        List<Vector2> points = new List<Vector2>();
-        while (NumOfGems > 0)
+        var half = Math.Floor((double)dimension / 2);
+        int xPos = 0, zPos = 0;
+        List<(int, int)> taken = new List<(int, int)>();
+        for (int i = 0; i < half; i++)
         {
-            int x = random.Next(dimension - 1);
-            int z = random.Next(dimension - 1);
-            if (!points.Contains(new Vector2(x, z)) &&
-               (x != 0 || z != 0))
+            do
             {
+                xPos = UnityEngine.Random.Range(0, dimension);
+                zPos = UnityEngine.Random.Range(0, dimension);
+            } while (!(xPos == 0 && zPos == 0) && taken.Contains((xPos, zPos)));
+            taken.Add((xPos, zPos));
 
-                var tempGem = Instantiate(gem, new Vector3(x, -.1F, z), Quaternion.identity);
-                tempGem.transform.localScale -= new Vector3(.6F, .6F, .6F);
-                points.Add(new Vector2(x, z));
-                NumOfGems--;
-            }
+            var tempGem = Instantiate(gem);
+            tempGem.transform.position = new Vector3(xPos, 0, zPos);
+            tempGem.transform.localScale *= .6f;
+
         }
     }
+    void GenerateFinishLine()
+    {
 
+        var tempfinishLine = Instantiate(finishLine);
+        tempfinishLine.transform.position = new Vector3(dimension - 1, 0, dimension - 1);
+
+
+    }
     public void InstantiateWalls()
     {
         for (int i = 0; i < dimension; i++)
