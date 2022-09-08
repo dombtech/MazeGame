@@ -1334,6 +1334,11 @@ PrefabInstance:
     - {fileID: 114692952745299282, guid: 2744ee55417394c98a83058343201766, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2744ee55417394c98a83058343201766, type: 3}
+--- !u!1 &721745682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1709024275627006, guid: bb391d5d826670d46b093e1168b4033d, type: 3}
+  m_PrefabInstance: {fileID: 1138967663}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &733430085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4788293955294736, guid: 2744ee55417394c98a83058343201766, type: 3}
@@ -2108,7 +2113,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 0ede7fba8a44be049970cdde928b8745, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: caf5c7fe35ee1d6fab8c61f90177f98b, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -2142,7 +2147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 870371783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91571120763ee904199d347c0becea39, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e240760167e1276bbde874c92ec5768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &870371788
@@ -2871,8 +2876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 1537977881128790, guid: 9f525de330f4b554e9a97e6a45c87806, type: 3}
-  floor: {fileID: 1709024275627006, guid: bb391d5d826670d46b093e1168b4033d, type: 3}
-  man: {fileID: 1945087056}
+  floor: {fileID: 721745682}
+  man: {fileID: 1741220429}
   gem: {fileID: 1557621410003514, guid: 2744ee55417394c98a83058343201766, type: 3}
   finishLine: {fileID: 1178038998228968, guid: 9c6bd9d75e76c3b4d80c7892205d099e, type: 3}
 --- !u!4 &1243420255
@@ -3046,9 +3051,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1303366756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c28f81ff0414c45aba91277a36dfe7, type: 3}
+  m_Script: {fileID: 11500000, guid: 39c81a3aad73c9a0b8ddf8baf90e43e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 7429e304ea6a4d22ab39d72511813c64, type: 3}
+    name: GemCollected
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4261bd2f70f3db5798697ebc43c1ab59, type: 3}
+    name: LevelComplete
+    source: {fileID: 0}
 --- !u!82 &1303366758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4160,11 +4172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1448061195}
   text: {fileID: 1978366756}
---- !u!1 &1945087056 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7036213049465896255, guid: 7cdc60720d6a87048989b86c8575c8dd, type: 3}
-  m_PrefabInstance: {fileID: 703309495}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978366752
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,10 +16,8 @@ public class Collectable : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider obj)
     {
-        if(obj.gameObject.tag == "Player")
-        {
-            GameManager.Instance.CollectGem();
-            Destroy(gameObject);
-        }
+	    if (!obj.gameObject.CompareTag("Player")) return;
+	    GameManager.Instance.CollectGem();
+	    Destroy(gameObject);
     }
 }
