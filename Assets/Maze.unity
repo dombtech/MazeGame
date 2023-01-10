@@ -2710,7 +2710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1741220429}
-  offset: {x: 0, y: -1, z: 1}
+  offset: {x: 0, y: -2, z: 1}
 --- !u!1 &1217193299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,7 +4171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 1448061195}
-  text: {fileID: 1978366756}
+  text: {fileID: 1217193301}
 --- !u!1 &1978366752
 GameObject:
   m_ObjectHideFlags: 0
